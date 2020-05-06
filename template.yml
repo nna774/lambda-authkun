@@ -1,0 +1,14 @@
+AWSTemplateFormatVersion: 2010-09-09
+Transform: AWS::Serverless-2016-10-31
+Resources: 
+   Function: 
+    Type: AWS::Serverless::Function 
+    Properties: 
+      Handler: lambda-authkun
+      Runtime: go1.x 
+      FunctionName: lambda-authkun
+      Timeout: 30
+      Role: arn:aws:iam::486414336274:role/lambda-none
+      Environment:
+        Variables:
+          AuthOrigin: 'https://auth.dark-kuins.net'
