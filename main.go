@@ -73,9 +73,9 @@ func authkun(_ context.Context, event events.APIGatewayCustomAuthorizerRequestTy
 	}
 
 	return generatePolicy("user", "Allow", event.MethodArn, map[string]interface{}{
-		"provider": "p",
-		"user":     "u",
-		"info":     "i",
+		"provider": resp.Header.Get("x-ngx-omniauth-provider"),
+		"user":     resp.Header.Get("x-ngx-omniauth-user"),
+		"info":     resp.Header.Values("x-ngx-omniauth-info"),
 	}), nil
 }
 

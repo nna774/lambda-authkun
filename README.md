@@ -24,3 +24,19 @@ Auth:
 `http.HandleFunc("/_auth/callback", adapter.NewCallbackHandler("https://auth.dark-kuins.net/callback"))`
  
 `/_auth/callback` を生やす。
+
+## user info
+
+omniauth_adapterのl `/test` の返す以下の情報
+
+- x-ngx-omniauth-provider
+- x-ngx-omniauth-user
+- x-ngx-omniauth-info
+
+の3つをそれぞれ
+
+- context.authorizer.provider
+- context.authorizer.user
+- context.authorizer.info
+
+に入れて返します。
