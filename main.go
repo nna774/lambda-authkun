@@ -5,6 +5,7 @@ import (
 	"net/http"
 	"net/url"
 	"os"
+	"strings"
 
 	"github.com/aws/aws-lambda-go/events"
 	"github.com/aws/aws-lambda-go/lambda"
@@ -75,7 +76,7 @@ func authkun(_ context.Context, event events.APIGatewayCustomAuthorizerRequestTy
 	return generatePolicy("user", "Allow", event.MethodArn, map[string]interface{}{
 		"provider": resp.Header.Get("x-ngx-omniauth-provider"),
 		"user":     resp.Header.Get("x-ngx-omniauth-user"),
-		"info":     resp.Header.Get("x-ngx-omniauth-info"),
+		"info":     strings.Join(resp.Header.Values("x-ngx-omniauth-info"), ""),
 	}), nil
 }
 
