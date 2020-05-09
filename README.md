@@ -36,8 +36,10 @@ ACCESS_DENIED:
 
 そして認証を受ける側に
 
+`import "github.com/nna774/lambda-authkun/adapter"` して
+
 `http.HandleFunc("/_auth/callback", adapter.NewCallbackHandler("https://auth.dark-kuins.net/callback"))`
- 
+
 `/_auth/callback` を生やす。
 
 ## user info
