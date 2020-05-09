@@ -27,7 +27,7 @@ Auth:
 
 ## user info
 
-omniauth_adapterのl `/test` の返す以下の情報
+omniauth_adapterの `/test` の返す以下の情報
 
 - x-ngx-omniauth-provider
 - x-ngx-omniauth-user
