@@ -19,6 +19,21 @@ Auth:
 
 のようにAuthorizer type REQUESTにする。
 
+さらに、`GatewayResponses`として、
+
+```
+ACCESS_DENIED:
+  StatusCode: 302
+  ResponseParameters:
+    Headers:
+      Location: context.authorizer.location
+  ResponseTemplates:
+    application/json: $context.authorizer.msg
+```
+
+を設定します。
+また、API Gatewayの制約で`UNAUTHORIZED`の時にcontextを返したりできない？ 気がするので、悲しい気持ちになります。これが誤っていたら教えてください……。
+
 そして認証を受ける側に
 
 `http.HandleFunc("/_auth/callback", adapter.NewCallbackHandler("https://auth.dark-kuins.net/callback"))`
