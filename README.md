@@ -1,5 +1,5 @@
 # lambda-authkun
-lambdaでもnginx_omniauth_adapterの認証使いたい！
+lambdaでも[nginx_omniauth_adapter](https://github.com/sorah/nginx_omniauth_adapter)の認証使いたい！
 
 ## つかいかた
 
